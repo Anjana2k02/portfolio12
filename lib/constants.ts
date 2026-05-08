@@ -85,7 +85,7 @@ export const PORTFOLIO_CONTENT: PortfolioContent = {
             title: 'Planning the next professional step',
             focus: 'Action planning and confidence',
             reflection:
-                'By preparing this portfolio, I learned to convert ambition into measurable actions. My next step is to improve my full-stack project quality, prepare for internship opportunities, and practice interview communication. The process increased my confidence because I can now see a clearer connection between my current abilities and the professional standard I am working toward.',
+                'By preparing this portfolio, I learned to convert ambition into measurable actions. My next step is to improve my full-stack project quality, strengthen development concepts and techniques, and manage my GitHub work more professionally. The process increased my confidence because I can now see a clearer connection between my current abilities and the professional standard I am working toward.',
             evidence:
                 'The career development plan defines short-term, mid-term, and long-term goals with clear measures of progress.'
         }
@@ -93,36 +93,36 @@ export const PORTFOLIO_CONTENT: PortfolioContent = {
     careerPlan: [
         {
             timeframe: '0-6 months',
-            title: 'Foundation and employability readiness',
-            goal: 'Strengthen the practical full-stack foundation needed for internship and junior developer opportunities.',
+            title: 'Foundation and project development',
+            goal: 'Strengthen full-stack development concepts, techniques, and project management through university, group, and individual projects.',
             actions: [
-                'Improve React, TypeScript, Node.js, and Firebase through focused project work',
-                'Refine CV, GitHub profile, and portfolio explanations for professional presentation',
-                'Practice interview answers using project examples, communication skills, and personal reflections'
+                'Improve React, TypeScript, Node.js, Firebase, and backend concepts through continued project practice',
+                'Develop clearer techniques for planning, coding, testing, and documenting group and individual projects',
+                'Manage GitHub repositories with cleaner commits, README files, and organized project history'
             ],
-            measure: 'Publish two polished full-stack projects with clear README files and portfolio case summaries.'
+            measure: 'Publish and maintain several university, group, and individual projects with clear GitHub structure and project documentation.'
         },
         {
             timeframe: '6-18 months',
-            title: 'Industry exposure and specialization',
-            goal: 'Gain real development experience while building a stronger identity as a full-stack developer with data awareness.',
+            title: 'Advanced planning and product design',
+            goal: 'Improve advanced project development skills by combining stronger software concepts, design planning, AI tools, usability thinking, and security awareness.',
             actions: [
-                'Apply for internships, freelance work, and university project opportunities',
-                'Build APIs, dashboards, and database-backed applications using real user requirements',
-                'Continue Python and AI/ML learning to support data-driven product features'
+                'Learn object-oriented programming concepts, system flow diagrams, and advanced project planning techniques',
+                'Use AI tools, Figma, and HCI concepts to design clearer user flows and better application interfaces',
+                'Strengthen security awareness while developing more advanced full-stack project features'
             ],
-            measure: 'Complete at least one industry-style project with authentication, database usage, deployment, and documentation.'
+            measure: 'Complete advanced-level projects with clear planning documents, flow diagrams, UI designs, security considerations, and structured implementation.'
         },
         {
             timeframe: '2-3 years',
-            title: 'Professional contribution and growth',
-            goal: 'Become a dependable full-stack developer capable of owning product features from planning to delivery.',
+            title: 'Software engineering and enterprise systems',
+            goal: 'Grow through internship and software engineer roles while developing a stronger understanding of advanced business systems and worldwide software solutions.',
             actions: [
-                'Develop deeper backend, cloud, testing, and deployment skills',
-                'Contribute to team projects with professional communication and code review habits',
-                'Use AI/ML and analytics knowledge to add smarter features to web applications'
+                'Gain professional experience through internship and software engineer responsibilities',
+                'Build deeper understanding of ERP, SAP, POS, asset management systems, and advanced enterprise workflows',
+                'Improve ability to design and develop software solutions that can support real business needs across wider markets'
             ],
-            measure: 'Build a portfolio of deployed products that show business value, technical quality, and continuous growth.'
+            measure: 'Contribute to advanced systems and build solution-focused software experience with stronger business, technical, and global development awareness.'
         }
     ],
     cv: {
