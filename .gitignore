@@ -1,11 +1,33 @@
-# generated files
-target/
-generated/
+# Dependencies
+/node_modules/
+/.pnp
+.pnp.js
 
-# dependencies
-Dependencies.toml
+# Package manager files
+.yarn/install-state.gz
 
-# config files
-Config.toml
-# the config files used for testing, Uncomment the following line if you want to commit the test config files
-#!**/tests/Config.toml
+# Build outputs
+/dist/
+/build/
+/out/
+/.vite/
+
+# Tests
+/coverage/
+
+# Environment
+.env*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# TypeScript
+*.tsbuildinfo
+
+# Platform/tooling
+.DS_Store
+*.pem
+.vercel/
