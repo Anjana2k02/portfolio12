@@ -74,7 +74,7 @@ export default function ContactSection() {
                     {/* Contact Info Card */}
                     <div className="flex flex-col items-center space-y-4 text-center">
                         <img
-                            src={assetUrl('profile.jpg')}
+                            src={assetUrl('profile.jpeg')}
                             width="150"
                             height="150"
                             alt={`${CONTACT_INFO.name} profile`}

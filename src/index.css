@@ -4,28 +4,28 @@
 
 @layer base {
   :root {
-    --font-heading: "Manrope";
-    --font-body: "Manrope";
-    --background: 210 100% 97%;
-    --foreground: 339 20% 20%;
-    --primary: 308 56% 85%;
-    --primary-foreground: 210 22% 22%;
-    --secondary: 196 75% 88%;
-    --secondary-foreground: 210 22% 22%;
-    --accent: 211 86% 70%;
-    --accent-foreground: 210 22% 22%;
-    --destructive: 0 93% 73%;
-    --destructive-foreground: 210 22% 22%;
-    --muted: 210 100% 95%;
-    --muted-foreground: 210 22% 22%;
-    --card: 210 100% 97%;
-    --card-foreground: 210 22% 22%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 341 20% 22%;
-    --border: 210 40% 80%;
-    --input: 210 40% 56%;
-    --ring: 210 40% 60%;
-    --radius: 1rem;
+    --font-heading: "Inter", "Segoe UI", sans-serif;
+    --font-body: "Inter", "Segoe UI", sans-serif;
+    --background: 42 38% 96%;
+    --foreground: 216 38% 13%;
+    --primary: 42 73% 57%;
+    --primary-foreground: 216 38% 13%;
+    --secondary: 190 36% 89%;
+    --secondary-foreground: 216 38% 13%;
+    --accent: 184 72% 28%;
+    --accent-foreground: 42 38% 96%;
+    --destructive: 0 72% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --muted: 42 26% 91%;
+    --muted-foreground: 216 18% 38%;
+    --card: 42 43% 98%;
+    --card-foreground: 216 38% 13%;
+    --popover: 42 43% 98%;
+    --popover-foreground: 216 38% 13%;
+    --border: 216 18% 82%;
+    --input: 216 18% 72%;
+    --ring: 184 72% 28%;
+    --radius: 0.5rem;
   }
 }
 
@@ -34,11 +34,235 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-background text-foreground font-body;
+  html {
+    scroll-behavior: smooth;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     @apply font-heading;
+    letter-spacing: 0;
+  }
+
+  ::selection {
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+}
+
+@layer utilities {
+  .data-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 44px 44px;
+  }
+}
+
+@media print {
+  @page {
+    margin: 16mm 12mm 14mm;
+    size: A4 landscape;
+  }
+
+  * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  html,
+  body {
+    background: white;
+    color: hsl(var(--foreground));
+    min-width: 1120px;
+  }
+
+  .site-header,
+  .print-button,
+  .section-index,
+  .screen-aws-slider {
+    display: none !important;
+  }
+
+  .portfolio-shell {
+    min-width: 1120px;
+    background: white !important;
+  }
+
+  main {
+    padding: 0;
+  }
+
+  .hero-grid,
+  .portfolio-content-grid {
+    max-width: none !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.05fr 0.95fr !important;
+    min-height: auto !important;
+    gap: 28px !important;
+    padding-top: 10mm !important;
+    padding-bottom: 8mm !important;
+  }
+
+  .hero-grid h1 {
+    font-size: 48px !important;
+    line-height: 0.95 !important;
+  }
+
+  .hero-grid img {
+    height: 360px !important;
+    width: 270px !important;
+    max-height: none !important;
+    object-fit: cover !important;
+  }
+
+  .portfolio-content-grid {
+    display: block !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .cv-grid {
+    display: grid !important;
+    grid-template-columns: 0.78fr 1.22fr !important;
+    gap: 18px !important;
+  }
+
+  .career-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+    align-items: start !important;
+  }
+
+  .career-section .mb-10 {
+    margin-bottom: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .career-section article {
+    padding: 10px !important;
+  }
+
+  .career-section article > div:first-child {
+    margin-bottom: 8px !important;
+    gap: 8px !important;
+  }
+
+  .career-section article > div:first-child span {
+    height: 30px !important;
+    width: 30px !important;
+  }
+
+  .career-section article > p {
+    min-height: 0 !important;
+    line-height: 1.45 !important;
+  }
+
+  .career-section ul {
+    margin-top: 8px !important;
+    gap: 5px !important;
+  }
+
+  .career-section li {
+    line-height: 1.4 !important;
+  }
+
+  .career-section article > div:last-child {
+    margin-top: 10px !important;
+    padding: 8px !important;
+    line-height: 1.4 !important;
+  }
+
+  .certificate-card {
+    display: grid !important;
+    grid-template-columns: 1fr 290px !important;
+    gap: 16px !important;
+  }
+
+  .print-aws-grid {
+    display: block !important;
+  }
+
+  .print-aws-grid > div:last-child {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .print-aws-grid img {
+    max-height: 46mm !important;
+  }
+
+  main,
+  section,
+  article,
+  figure {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-section {
+    break-before: page;
+    page-break-before: always;
+    margin-bottom: 0 !important;
+    padding-top: 4mm !important;
+  }
+
+  #introduction {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .data-grid {
+    min-height: auto !important;
+    border-bottom: 1px solid hsl(var(--border));
+    background-size: 36px 36px;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    max-height: 82mm;
+    object-fit: contain;
+  }
+
+  article {
+    padding: 14px !important;
+  }
+
+  h2 {
+    font-size: 30px !important;
+  }
+
+  h3 {
+    font-size: 18px !important;
+  }
+
+  p,
+  li {
+    font-size: 12px !important;
+    line-height: 1.55 !important;
+  }
+
+  .shadow-sm {
+    box-shadow: none !important;
   }
 }
