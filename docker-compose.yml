@@ -1,0 +1,12 @@
+services:
+  portfolio:
+    build:
+      context: .
+      args:
+        VITE_BASE_PATH: /
+        VITE_AUTHOR_NAME: Anjana Indunil
+        VITE_CONTACT_EMAIL: anjanaindu3699@gmail.com
+        VITE_CONTACT_PHONE: "+91-9876543210"
+    ports:
+      - "8080:80"
+    restart: unless-stopped
