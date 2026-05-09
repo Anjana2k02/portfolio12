@@ -27,6 +27,28 @@
     --ring: 184 72% 28%;
     --radius: 0.5rem;
   }
+
+  .dark {
+    --background: 222 31% 8%;
+    --foreground: 42 38% 94%;
+    --primary: 42 78% 58%;
+    --primary-foreground: 222 31% 8%;
+    --secondary: 205 30% 18%;
+    --secondary-foreground: 42 38% 94%;
+    --accent: 184 68% 48%;
+    --accent-foreground: 222 31% 8%;
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    --muted: 218 24% 14%;
+    --muted-foreground: 216 14% 72%;
+    --card: 220 28% 11%;
+    --card-foreground: 42 38% 94%;
+    --popover: 220 28% 11%;
+    --popover-foreground: 42 38% 94%;
+    --border: 216 21% 24%;
+    --input: 216 21% 32%;
+    --ring: 184 68% 48%;
+  }
 }
 
 @layer base {
@@ -66,6 +88,12 @@
       linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px);
     background-size: 44px 44px;
   }
+
+  .dark .data-grid {
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.42) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.42) 1px, transparent 1px);
+  }
 }
 
 @media print {
@@ -86,8 +114,22 @@
     min-width: 1120px;
   }
 
+  .portfolio-shell,
+  .portfolio-shell.dark {
+    --background: 42 38% 96%;
+    --foreground: 216 38% 13%;
+    --primary: 42 73% 57%;
+    --primary-foreground: 216 38% 13%;
+    --accent: 184 72% 28%;
+    --muted: 42 26% 91%;
+    --muted-foreground: 216 18% 38%;
+    --card: 42 43% 98%;
+    --border: 216 18% 82%;
+  }
+
   .site-header,
   .print-button,
+  .site-header button[aria-label^="Switch"],
   .section-index,
   .screen-aws-slider {
     display: none !important;

@@ -12,8 +12,10 @@ import {
   GraduationCap,
   Mail,
   MapPin,
+  Moon,
   Phone,
   Printer,
+  Sun,
   Target
 } from 'lucide-react';
 import { PORTFOLIO_CONTENT } from '@/lib/constants';
@@ -44,8 +46,24 @@ function SectionHeader({
 
 export default function Home() {
   const [activeAwsCertificate, setActiveAwsCertificate] = useState(0);
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof window === 'undefined') {
+      return 'light';
+    }
+
+    const storedTheme = window.localStorage.getItem('portfolio-theme');
+    if (storedTheme === 'light' || storedTheme === 'dark') {
+      return storedTheme;
+    }
+
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  });
   const awsCertificates = content.awsCertificates;
   const currentAwsCertificate = awsCertificates[activeAwsCertificate];
+
+  useEffect(() => {
+    window.localStorage.setItem('portfolio-theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     const intervalId = window.setInterval(() => {
@@ -63,8 +81,12 @@ export default function Home() {
     setActiveAwsCertificate((current) => (current === awsCertificates.length - 1 ? 0 : current + 1));
   };
 
+  const toggleTheme = () => {
+    setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
+  };
+
   return (
-    <div className="portfolio-shell min-h-screen bg-background text-foreground">
+    <div className={`portfolio-shell min-h-screen bg-background text-foreground ${theme}`}>
       <header className="site-header sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:px-8">
           <a href="#introduction" className="flex items-center gap-3 font-semibold">
@@ -80,14 +102,25 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <button
-            type="button"
-            onClick={() => window.print()}
-            className="print-button inline-flex h-10 items-center gap-2 rounded-md bg-foreground px-4 text-sm font-semibold text-background transition hover:bg-accent hover:text-accent-foreground"
-          >
-            <Printer className="h-4 w-4" />
-            PDF
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-border bg-card text-foreground transition hover:border-accent hover:text-accent"
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="print-button inline-flex h-10 items-center gap-2 rounded-md bg-foreground px-4 text-sm font-semibold text-background transition hover:bg-accent hover:text-accent-foreground"
+            >
+              <Printer className="h-4 w-4" />
+              PDF
+            </button>
+          </div>
         </div>
       </header>
 
@@ -99,7 +132,7 @@ export default function Home() {
                 <GraduationCap className="h-4 w-4 text-accent" />
                 {content.owner.course}
               </div>
-              <p className="mb-4 text-sm font-semibold uppercase text-accent">Portfolio 2026</p>
+              <p className="mb-4 text-sm font-semibold uppercase text-accent">Portfolio</p>
               <h1 className="max-w-4xl text-5xl font-semibold leading-none text-foreground md:text-7xl">
                 {content.owner.role}
               </h1>
